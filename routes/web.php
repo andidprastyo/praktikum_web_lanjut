@@ -15,4 +15,6 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::get('/', [MahasiswaController::class, 'index'])->name('mahasiswas.index');
 Route::resource('mahasiswas', MahasiswaController::class);
+Route::get('/mahasiswas/detail/{Nim}', [MahasiswaController::class, 'detail'])->name('mahasiswas.detail');

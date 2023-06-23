@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Mahasiswa;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class MahasiswaSeeder extends Seeder
 {
@@ -12,6 +13,19 @@ class MahasiswaSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Mahasiswa::create([
+            'Nim' => "2141720046",
+            'Nama' => "Andi Dwi Prastyo",
+            'kelas_id' => "4",
+            'Jurusan' => "IT",
+            'No_Handphone' => "081291006320",
+        ]);
+        Mahasiswa::create([
+            'Nim' => "2141720047",
+            'Nama' => "Ariyanto",
+            'kelas_id' => "5",
+            'Jurusan' => "IT",
+            'No_Handphone' => "081291006321",
+        ]);
     }
 }
