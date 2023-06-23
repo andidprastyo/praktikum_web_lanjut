@@ -20,7 +20,8 @@ class MahasiswaController extends Controller
         }
 
         $post = Mahasiswa::orderBy('Nim', 'desc')->paginate(6);
-        return view('mahasiswas.index', compact('mahasiswas'));
+        return view('mahasiswas.index', compact('mahasiswas'))
+            ->
         with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -42,7 +43,9 @@ class MahasiswaController extends Controller
             'Nama' => 'required',
             'Kelas' => 'required',
             'Jurusan' => 'required',
-            'No_Handphone' => 'required'
+            'No_Handphone' => 'required',
+            'Email' => 'required',
+            'Tanggal_Lahir' => 'required',
         ]);
 
         Mahasiswa::create($request->all());
@@ -80,6 +83,8 @@ class MahasiswaController extends Controller
             'Kelas' => 'required',
             'Jurusan' => 'required',
             'No_Handphone' => 'required',
+            'Email' => 'required',
+            'Tanggal_Lahir' => 'required',
         ]);
 
         Mahasiswa::find($Nim)->update($request->all());
