@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->id();
-            $table->string('Nim', 16)->unique();
+            $table->string('Nim', 16);
             $table->string('Nama', 64);
+            $table->string('Foto', 64);
             $table->unsignedBigInteger('kelas_id')->nullable();
             $table->foreign('kelas_id')->references('id')->on('kelas');
             $table->string('Jurusan', 32);

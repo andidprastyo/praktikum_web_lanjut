@@ -17,7 +17,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form method="post" action="{{ route('mahasiswas.update', $Mahasiswa->Nim) }}" id="myForm">
+                    <form method="post" action="{{ route('mahasiswas.update', $Mahasiswa->id) }}" id="myForm" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
@@ -31,8 +31,8 @@
                                 value="{{ $Mahasiswa->Nama }}" ariadescribedby="Nama">
                         </div>
                         <div class="form-group">
-                            <label for="kelas_id">Kelas</label><br>
-                            <select name="kelas_id" id="kelas_id" class="form-control">
+                            <label for="Kelas">Kelas</label><br>
+                            <select name="Kelas" id="Kelas" class="form-control">
                                 @foreach ($Kelas as $kelas)
                                     <option value="{{ $kelas->id }}" {{ $Mahasiswa->kelas_id == $kelas->id ? 'selected' : '' }}>{{ $kelas->nama_kelas }}</option>
                                 @endforeach
@@ -47,6 +47,11 @@
                             <label for="No_Handphone">No_Handphone</label><br>
                             <input type="No_Handphone" name="No_Handphone" class="form-control" id="No_Handphone"
                                 value="{{ $Mahasiswa->No_Handphone }}" ariadescribedby="No_Handphone">
+                        </div>
+                        <div class="form-group">
+                            <label for="Foto">Foto</label>
+                            <input type="file" class="form-control mb-2" name="Foto" value="{{$Mahasiswa->Foto}}">
+                            <img width="150px" src="{{asset('storage/'.$Mahasiswa->Foto)}}">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

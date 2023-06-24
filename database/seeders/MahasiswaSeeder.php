@@ -16,6 +16,7 @@ class MahasiswaSeeder extends Seeder
         Mahasiswa::create([
             'Nim' => "2141720046",
             'Nama' => "Andi Dwi Prastyo",
+            'Foto' => 'images/me.jpeg',
             'kelas_id' => "4",
             'Jurusan' => "IT",
             'No_Handphone' => "081291006320",
@@ -23,6 +24,7 @@ class MahasiswaSeeder extends Seeder
         Mahasiswa::create([
             'Nim' => "2141720047",
             'Nama' => "Ariyanto",
+            'Foto' => 'images/ncen.jpeg',
             'kelas_id' => "5",
             'Jurusan' => "IT",
             'No_Handphone' => "081291006321",

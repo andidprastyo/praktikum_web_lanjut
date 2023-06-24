@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             MahasiswaSeeder::class,
             MataKuliahSeeder::class,
             MahasiswaMataKuliahSeeder::class,
+            ArticleSeeder::class,
         ]);
     }
 }

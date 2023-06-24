@@ -11,7 +11,7 @@ class Matakuliah extends Model
     use HasFactory;
 
     protected $table = 'matakuliah';
-    protected $primaryKey = 'id';
+    protected $guarded = 'id';
 
     protected $fillable = [
         'nama_matkul',
@@ -20,8 +20,8 @@ class Matakuliah extends Model
         'semester',
     ];
 
-    public function mahasiswa_matakuliah()
+    public function mahasiswa()
     {
-        return $this->hasMany(Mahasiswa_Matakuliah::class);
+        return $this->belongsToMany(Mahasiswa::class,'mahasiswa_matakuliah','matakuliah_id','mahasiswa_id');
     }
 }

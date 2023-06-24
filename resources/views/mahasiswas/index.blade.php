@@ -2,7 +2,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left mt-2 mb-5">
+            <div class="pull-left mt-2 mb-5 d-flex justify-content-center">
                 <h2>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
             </div>
 
@@ -29,26 +29,26 @@
         <tr>
             <th>Nim</th>
             <th>Nama</th>
+            <th>Foto</th>
             <th>Kelas</th>
             <th>Jurusan</th>
-            <th>No_Handphone</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($mahasiswa as $Mahasiswa)
             <tr>
                 <td>{{ $Mahasiswa->Nim }}</td>
                 <td>{{ $Mahasiswa->Nama }}</td>
+                <td><img width="100px" src="{{asset('storage/'.$Mahasiswa->Foto)}}"></td>
                 <td>{{ $Mahasiswa->kelas->nama_kelas }}</td>
                 <td>{{ $Mahasiswa->Jurusan }}</td>
-                <td>{{ $Mahasiswa->No_Handphone }}</td>
                 <td>
-                    <form action="{{ route('mahasiswas.destroy', $Mahasiswa->Nim) }}" method="POST">
-                        <a class="btn btn-info" href="{{ route('mahasiswas.detail', $Mahasiswa->Nim) }}">Show</a>
-                        <a class="btn btn-primary" href="{{ route('mahasiswas.edit', $Mahasiswa->Nim) }}">Edit</a>
+                    <form action="{{ route('mahasiswas.destroy', $Mahasiswa->id) }}" method="POST">
+                        <a class="btn btn-info" href="{{ route('mahasiswas.show', $Mahasiswa->Nim) }}">Show</a>
+                        <a class="btn btn-primary" href="{{ route('mahasiswas.edit', $Mahasiswa->id) }}">Edit</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger confirm-delete">Delete</button>
-                        <a class="btn btn-warning" href="{{ route('mahasiswas.show', $Mahasiswa->Nim) }}">Nilai</a>
+                        <a class="btn btn-warning" href="{{ route('mahasiswas.nilai', $Mahasiswa->Nim) }}">Nilai</a>
                     </form>
                 </td>
             </tr>
